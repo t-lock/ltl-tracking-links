@@ -1,10 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.getLTLTrackingLink = void 0;
 const carrierUrls = {
     "r&l": "https://www.rlcarriers.com/freight/shipping/shipment-tracing?pro=$$$&docType=PRO&source=web",
     pittohio: "https://pittohio.com/mypittohio/shipping/quicktrace/publictracingresponse/$$$",
     aaacooper: "https://www.aaacooper.com/pwb/Transit/ProTrackResults.aspx?ProNum=$$$&AllAccounts=true",
     aduiepyle: "https://aduiepyle.com/resources/shipment-status/?tracking=$$$",
 };
-export function getLTLTrackingLink(trackingInfo) {
+function getLTLTrackingLink(trackingInfo) {
     if (!trackingInfo.carrier_name)
         return null;
     const key = trackingInfo.carrier_name.toLowerCase().replace(/\s/g, "");
@@ -15,4 +18,5 @@ export function getLTLTrackingLink(trackingInfo) {
     }
     return null;
 }
+exports.getLTLTrackingLink = getLTLTrackingLink;
 //# sourceMappingURL=index.js.map
