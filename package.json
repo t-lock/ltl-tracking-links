@@ -1,6 +1,6 @@
 {
   "name": "ltl-tracking-links",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "LTL carrier tracking link utilities",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
