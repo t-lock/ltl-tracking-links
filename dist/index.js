@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.getLTLTrackingLink = void 0;
 const carrierUrls = {
     "r&l": "https://www.rlcarriers.com/freight/shipping/shipment-tracing?pro=$$$&docType=PRO&source=web",
+    "r+l": "https://www.rlcarriers.com/freight/shipping/shipment-tracing?pro=$$$&docType=PRO&source=web",
     pittohio: "https://pittohio.com/mypittohio/shipping/quicktrace/publictracingresponse/$$$",
     aaacooper: "https://www.aaacooper.com/pwb/Transit/ProTrackResults.aspx?ProNum=$$$&AllAccounts=true",
     aduiepyle: "https://aduiepyle.com/resources/shipment-status/?tracking=$$$",

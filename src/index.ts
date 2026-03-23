@@ -6,6 +6,8 @@ type TrackingInfo = {
 const carrierUrls: Record<string, string> = {
   "r&l":
     "https://www.rlcarriers.com/freight/shipping/shipment-tracing?pro=$$$&docType=PRO&source=web",
+  "r+l":
+    "https://www.rlcarriers.com/freight/shipping/shipment-tracing?pro=$$$&docType=PRO&source=web",
   pittohio:
     "https://pittohio.com/mypittohio/shipping/quicktrace/publictracingresponse/$$$",
   aaacooper:
