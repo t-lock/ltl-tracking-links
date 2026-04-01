@@ -9,9 +9,11 @@ const carrierUrls = {
     aduiepyle: "https://aduiepyle.com/resources/shipment-status/?tracking=$$$",
 };
 function getLTLTrackingLink(trackingInfo) {
-    if (!trackingInfo.carrier_name)
+    if (!trackingInfo.carrier_name && !trackingInfo.carrier_method)
         return null;
-    const key = trackingInfo.carrier_name.toLowerCase().replace(/\s/g, "");
+    const combined = [trackingInfo.carrier_name, trackingInfo.carrier_method]
+        .filter(Boolean).join();
+    const key = combined.toLowerCase().replace(/\s/g, "");
     for (const [mapKey, url] of Object.entries(carrierUrls)) {
         if (key.includes(mapKey)) {
             return url.replace("$$$", trackingInfo.tracking_number);

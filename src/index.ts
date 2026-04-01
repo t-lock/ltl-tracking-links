@@ -1,6 +1,7 @@
 type TrackingInfo = {
   tracking_number: string;
   carrier_name?: string;
+  carrier_method?: string;
 };
 
 const carrierUrls: Record<string, string> = {
@@ -16,9 +17,12 @@ const carrierUrls: Record<string, string> = {
 };
 
 export function getLTLTrackingLink(trackingInfo: TrackingInfo): string | null {
-  if (!trackingInfo.carrier_name) return null;
+  if (!trackingInfo.carrier_name && !trackingInfo.carrier_method) return null;
 
-  const key = trackingInfo.carrier_name.toLowerCase().replace(/\s/g, "");
+  const combined = [trackingInfo.carrier_name, trackingInfo.carrier_method]
+    .filter(Boolean).join();
+
+  const key = combined.toLowerCase().replace(/\s/g, "");
 
   for (const [mapKey, url] of Object.entries(carrierUrls)) {
     if (key.includes(mapKey)) {
