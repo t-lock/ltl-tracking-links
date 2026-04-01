@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getLTLTrackingLink = void 0;
+exports.getLTLTrackingLink = getLTLTrackingLink;
 const carrierUrls = {
     "r&l": "https://www.rlcarriers.com/freight/shipping/shipment-tracing?pro=$$$&docType=PRO&source=web",
     "r+l": "https://www.rlcarriers.com/freight/shipping/shipment-tracing?pro=$$$&docType=PRO&source=web",
@@ -12,8 +12,8 @@ function getLTLTrackingLink(trackingInfo) {
     if (!trackingInfo.carrier_name && !trackingInfo.carrier_method)
         return null;
     const combined = [trackingInfo.carrier_name, trackingInfo.carrier_method]
-        .filter(Boolean).join();
-    const key = combined.toLowerCase().replace(/\s/g, "");
+        .filter(Boolean).join("");
+    const key = combined.toLowerCase().replace(/[\s.]/g, "");
     for (const [mapKey, url] of Object.entries(carrierUrls)) {
         if (key.includes(mapKey)) {
             return url.replace("$$$", trackingInfo.tracking_number);
@@ -21,5 +21,4 @@ function getLTLTrackingLink(trackingInfo) {
     }
     return null;
 }
-exports.getLTLTrackingLink = getLTLTrackingLink;
 //# sourceMappingURL=index.js.map

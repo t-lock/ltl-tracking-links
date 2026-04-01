@@ -20,9 +20,9 @@ export function getLTLTrackingLink(trackingInfo: TrackingInfo): string | null {
   if (!trackingInfo.carrier_name && !trackingInfo.carrier_method) return null;
 
   const combined = [trackingInfo.carrier_name, trackingInfo.carrier_method]
-    .filter(Boolean).join();
+    .filter(Boolean).join("");
 
-  const key = combined.toLowerCase().replace(/\s/g, "");
+  const key = combined.toLowerCase().replace(/[\s.]/g, "");
 
   for (const [mapKey, url] of Object.entries(carrierUrls)) {
     if (key.includes(mapKey)) {
