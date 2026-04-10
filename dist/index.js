@@ -7,6 +7,7 @@ const carrierUrls = {
     pittohio: "https://pittohio.com/mypittohio/shipping/quicktrace/publictracingresponse/$$$",
     aaacooper: "https://www.aaacooper.com/pwb/Transit/ProTrackResults.aspx?ProNum=$$$&AllAccounts=true",
     aduiepyle: "https://aduiepyle.com/resources/shipment-status/?tracking=$$$",
+    ceva: "https://www.cevalogistics.com/en/ceva-trak?reference_query=$$$&search_type=oneview",
 };
 function getLTLTrackingLink(trackingInfo) {
     if (!trackingInfo.carrier_name && !trackingInfo.carrier_method)
