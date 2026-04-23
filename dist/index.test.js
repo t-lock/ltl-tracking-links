@@ -58,6 +58,22 @@ const index_1 = require("./index");
     });
     strict_1.default.ok(url?.includes("aduiepyle.com"));
 });
+// Ceva
+(0, node_test_1.test)("matches ceva", () => {
+    const url = (0, index_1.getLTLTrackingLink)({
+        tracking_number: "12345",
+        carrier_name: "Ceva",
+    });
+    strict_1.default.ok(url?.includes("cevalogistics.com"));
+});
+// Speedee
+(0, node_test_1.test)("matches speedee", () => {
+    const url = (0, index_1.getLTLTrackingLink)({
+        tracking_number: "12345",
+        carrier_name: "Speedee",
+    });
+    strict_1.default.ok(url?.includes("speedeedelivery.com"));
+});
 // carrier_method fallback
 (0, node_test_1.test)("matches via carrier_method when carrier_name absent", () => {
     const url = (0, index_1.getLTLTrackingLink)({

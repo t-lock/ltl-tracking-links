@@ -65,6 +65,24 @@ test("matches a. duie pyle", () => {
   assert.ok(url?.includes("aduiepyle.com"));
 });
 
+// Ceva
+test("matches ceva", () => {
+  const url = getLTLTrackingLink({
+    tracking_number: "12345",
+    carrier_name: "Ceva",
+  });
+  assert.ok(url?.includes("cevalogistics.com"));
+});
+
+// Speedee
+test("matches speedee", () => {
+  const url = getLTLTrackingLink({
+    tracking_number: "12345",
+    carrier_name: "Speedee",
+  });
+  assert.ok(url?.includes("speedeedelivery.com"));
+});
+
 // carrier_method fallback
 test("matches via carrier_method when carrier_name absent", () => {
   const url = getLTLTrackingLink({

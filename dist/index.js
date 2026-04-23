@@ -8,6 +8,7 @@ const carrierUrls = {
     aaacooper: "https://www.aaacooper.com/pwb/Transit/ProTrackResults.aspx?ProNum=$$$&AllAccounts=true",
     aduiepyle: "https://aduiepyle.com/resources/shipment-status/?tracking=$$$",
     ceva: "https://www.cevalogistics.com/en/ceva-trak?reference_query=$$$&search_type=oneview",
+    speedee: "https://speedeedelivery.com/track-a-shipment/?v=detail&barcode=$$$",
 };
 function getLTLTrackingLink(trackingInfo) {
     if (!trackingInfo.carrier_name && !trackingInfo.carrier_method)
