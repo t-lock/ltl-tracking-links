@@ -74,6 +74,14 @@ const index_1 = require("./index");
     });
     strict_1.default.ok(url?.includes("speedeedelivery.com"));
 });
+// Meyer
+(0, node_test_1.test)("matches meyer", () => {
+    const url = (0, index_1.getLTLTrackingLink)({
+        tracking_number: "12345",
+        carrier_name: "Meyer Logistics",
+    });
+    strict_1.default.ok(url?.includes("meyerlogistics.com"));
+});
 // carrier_method fallback
 (0, node_test_1.test)("matches via carrier_method when carrier_name absent", () => {
     const url = (0, index_1.getLTLTrackingLink)({

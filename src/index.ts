@@ -17,6 +17,7 @@ const carrierUrls: Record<string, string> = {
   ceva:
     "https://www.cevalogistics.com/en/ceva-trak?reference_query=$$$&search_type=oneview",
   speedee: "https://speedeedelivery.com/track-a-shipment/?v=detail&barcode=$$$",
+  meyer: "https://meyerlogistics.com/shipment-tracker?trackingNumber=RVR$$$",
 };
 
 export function getLTLTrackingLink(trackingInfo: TrackingInfo): string | null {

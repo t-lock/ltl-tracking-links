@@ -83,6 +83,15 @@ test("matches speedee", () => {
   assert.ok(url?.includes("speedeedelivery.com"));
 });
 
+// Meyer
+test("matches meyer", () => {
+  const url = getLTLTrackingLink({
+    tracking_number: "12345",
+    carrier_name: "Meyer Logistics",
+  });
+  assert.ok(url?.includes("meyerlogistics.com"));
+});
+
 // carrier_method fallback
 test("matches via carrier_method when carrier_name absent", () => {
   const url = getLTLTrackingLink({
