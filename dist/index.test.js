@@ -98,4 +98,20 @@ const index_1 = require("./index");
     });
     strict_1.default.ok(url?.includes("rlcarriers.com"));
 });
+// trailing/leading whitespace
+(0, node_test_1.test)("trims trailing whitespace from tracking number", () => {
+    const url = (0, index_1.getLTLTrackingLink)({
+        tracking_number: "5057720673 ",
+        carrier_method: "PITT OHIO",
+    });
+    strict_1.default.equal(url, "https://pittohio.com/mypittohio/shipping/quicktrace/publictracingresponse/5057720673");
+});
+(0, node_test_1.test)("trims whitespace from carrier fields before matching", () => {
+    const url = (0, index_1.getLTLTrackingLink)({
+        tracking_number: "12345",
+        carrier_name: " ",
+        carrier_method: " Pitt Ohio ",
+    });
+    strict_1.default.ok(url?.includes("pittohio.com"));
+});
 //# sourceMappingURL=index.test.js.map

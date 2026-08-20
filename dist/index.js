@@ -15,11 +15,13 @@ function getLTLTrackingLink(trackingInfo) {
     if (!trackingInfo.carrier_name && !trackingInfo.carrier_method)
         return null;
     const combined = [trackingInfo.carrier_name, trackingInfo.carrier_method]
-        .filter(Boolean).join("");
+        .map((v) => v?.trim())
+        .filter(Boolean)
+        .join("");
     const key = combined.toLowerCase().replace(/[\s.]/g, "");
     for (const [mapKey, url] of Object.entries(carrierUrls)) {
         if (key.includes(mapKey)) {
-            return url.replace("$$$", trackingInfo.tracking_number);
+            return url.replace("$$$", trackingInfo.tracking_number.trim());
         }
     }
     return null;

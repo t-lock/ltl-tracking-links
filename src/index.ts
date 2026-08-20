@@ -14,8 +14,7 @@ const carrierUrls: Record<string, string> = {
   aaacooper:
     "https://www.aaacooper.com/pwb/Transit/ProTrackResults.aspx?ProNum=$$$&AllAccounts=true",
   aduiepyle: "https://aduiepyle.com/resources/shipment-status/?tracking=$$$",
-  ceva:
-    "https://www.cevalogistics.com/en/ceva-trak?reference_query=$$$&search_type=oneview",
+  ceva: "https://www.cevalogistics.com/en/ceva-trak?reference_query=$$$&search_type=oneview",
   speedee: "https://speedeedelivery.com/track-a-shipment/?v=detail&barcode=$$$",
   meyer: "https://meyerlogistics.com/shipment-tracker?trackingNumber=RVR$$$",
 };
@@ -24,13 +23,15 @@ export function getLTLTrackingLink(trackingInfo: TrackingInfo): string | null {
   if (!trackingInfo.carrier_name && !trackingInfo.carrier_method) return null;
 
   const combined = [trackingInfo.carrier_name, trackingInfo.carrier_method]
-    .filter(Boolean).join("");
+    .map((v) => v?.trim())
+    .filter(Boolean)
+    .join("");
 
   const key = combined.toLowerCase().replace(/[\s.]/g, "");
 
   for (const [mapKey, url] of Object.entries(carrierUrls)) {
     if (key.includes(mapKey)) {
-      return url.replace("$$$", trackingInfo.tracking_number);
+      return url.replace("$$$", trackingInfo.tracking_number.trim());
     }
   }
 

@@ -109,3 +109,24 @@ test("handles empty carrier_name with carrier_method for matching", () => {
   });
   assert.ok(url?.includes("rlcarriers.com"));
 });
+
+// trailing/leading whitespace
+test("trims trailing whitespace from tracking number", () => {
+  const url = getLTLTrackingLink({
+    tracking_number: "5057720673 ",
+    carrier_method: "PITT OHIO",
+  });
+  assert.equal(
+    url,
+    "https://pittohio.com/mypittohio/shipping/quicktrace/publictracingresponse/5057720673",
+  );
+});
+
+test("trims whitespace from carrier fields before matching", () => {
+  const url = getLTLTrackingLink({
+    tracking_number: "12345",
+    carrier_name: " ",
+    carrier_method: " Pitt Ohio ",
+  });
+  assert.ok(url?.includes("pittohio.com"));
+});
