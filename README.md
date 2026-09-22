@@ -5,7 +5,7 @@ Builds carrier tracking URLs for LTL shipments.
 ## Install
 
 ```sh
-yarn add ltl-tracking-links@git+ssh://git@github.com:t-lock/ltl-tracking-links.git#v0.0.9
+yarn add ltl-tracking-links@https://github.com/t-lock/ltl-tracking-links.git#v0.0.9
 ```
 
 ## Usage
