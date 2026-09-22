@@ -27,7 +27,10 @@ test("matches r&l carriers", () => {
     tracking_number: "12345",
     carrier_name: "R&L Carriers",
   });
-  assert.ok(url?.includes("rlcarriers.com"));
+  assert.equal(
+    url,
+    "https://www.rlcarriers.com/freight/shipping/shipment-tracing?pro=12345&docType=PRO&source=web",
+  );
 });
 
 test("matches r+l variant", () => {
@@ -35,7 +38,10 @@ test("matches r+l variant", () => {
     tracking_number: "12345",
     carrier_name: "R+L Carriers",
   });
-  assert.ok(url?.includes("rlcarriers.com"));
+  assert.equal(
+    url,
+    "https://www.rlcarriers.com/freight/shipping/shipment-tracing?pro=12345&docType=PRO&source=web",
+  );
 });
 
 // Pitt Ohio
@@ -44,7 +50,10 @@ test("matches pitt ohio", () => {
     tracking_number: "12345",
     carrier_name: "Pitt Ohio",
   });
-  assert.ok(url?.includes("pittohio.com"));
+  assert.equal(
+    url,
+    "https://pittohio.com/mypittohio/shipping/quicktrace/publictracingresponse/12345",
+  );
 });
 
 // AAA Cooper
@@ -53,7 +62,10 @@ test("matches aaa cooper", () => {
     tracking_number: "12345",
     carrier_name: "AAA Cooper",
   });
-  assert.ok(url?.includes("aaacooper.com"));
+  assert.equal(
+    url,
+    "https://www.aaacooper.com/pwb/Transit/ProTrackResults.aspx?ProNum=12345&AllAccounts=true",
+  );
 });
 
 // A. Duie Pyle
@@ -62,7 +74,10 @@ test("matches a. duie pyle", () => {
     tracking_number: "12345",
     carrier_name: "A. Duie Pyle",
   });
-  assert.ok(url?.includes("aduiepyle.com"));
+  assert.equal(
+    url,
+    "https://aduiepyle.com/resources/shipment-status/?tracking=12345",
+  );
 });
 
 // Ceva
@@ -71,7 +86,10 @@ test("matches ceva", () => {
     tracking_number: "12345",
     carrier_name: "Ceva",
   });
-  assert.ok(url?.includes("cevalogistics.com"));
+  assert.equal(
+    url,
+    "https://www.cevalogistics.com/en/ceva-trak?reference_query=12345&search_type=oneview",
+  );
 });
 
 // Speedee
@@ -80,7 +98,10 @@ test("matches speedee", () => {
     tracking_number: "12345",
     carrier_name: "Speedee",
   });
-  assert.ok(url?.includes("speedeedelivery.com"));
+  assert.equal(
+    url,
+    "https://speedeedelivery.com/track-a-shipment/?v=detail&barcode=12345",
+  );
 });
 
 // Meyer
@@ -89,7 +110,19 @@ test("matches meyer", () => {
     tracking_number: "12345",
     carrier_name: "Meyer Logistics",
   });
-  assert.ok(url?.includes("meyerlogistics.com"));
+  assert.equal(
+    url,
+    "https://meyerlogistics.com/shipment-tracker?trackingNumber=RVR12345",
+  );
+});
+
+// SAIA
+test("matches saia", () => {
+  const url = getLTLTrackingLink({
+    tracking_number: "12345",
+    carrier_name: "SAIA",
+  });
+  assert.equal(url, "https://www.saia.com/track/details;pro=12345");
 });
 
 // carrier_method fallback

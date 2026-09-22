@@ -10,6 +10,7 @@ const carrierUrls = {
     ceva: "https://www.cevalogistics.com/en/ceva-trak?reference_query=$$$&search_type=oneview",
     speedee: "https://speedeedelivery.com/track-a-shipment/?v=detail&barcode=$$$",
     meyer: "https://meyerlogistics.com/shipment-tracker?trackingNumber=RVR$$$",
+    saia: "https://www.saia.com/track/details;pro=$$$",
 };
 function getLTLTrackingLink(trackingInfo) {
     if (!trackingInfo.carrier_name && !trackingInfo.carrier_method)

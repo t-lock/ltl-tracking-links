@@ -25,14 +25,14 @@ const index_1 = require("./index");
         tracking_number: "12345",
         carrier_name: "R&L Carriers",
     });
-    strict_1.default.ok(url?.includes("rlcarriers.com"));
+    strict_1.default.equal(url, "https://www.rlcarriers.com/freight/shipping/shipment-tracing?pro=12345&docType=PRO&source=web");
 });
 (0, node_test_1.test)("matches r+l variant", () => {
     const url = (0, index_1.getLTLTrackingLink)({
         tracking_number: "12345",
         carrier_name: "R+L Carriers",
     });
-    strict_1.default.ok(url?.includes("rlcarriers.com"));
+    strict_1.default.equal(url, "https://www.rlcarriers.com/freight/shipping/shipment-tracing?pro=12345&docType=PRO&source=web");
 });
 // Pitt Ohio
 (0, node_test_1.test)("matches pitt ohio", () => {
@@ -40,7 +40,7 @@ const index_1 = require("./index");
         tracking_number: "12345",
         carrier_name: "Pitt Ohio",
     });
-    strict_1.default.ok(url?.includes("pittohio.com"));
+    strict_1.default.equal(url, "https://pittohio.com/mypittohio/shipping/quicktrace/publictracingresponse/12345");
 });
 // AAA Cooper
 (0, node_test_1.test)("matches aaa cooper", () => {
@@ -48,7 +48,7 @@ const index_1 = require("./index");
         tracking_number: "12345",
         carrier_name: "AAA Cooper",
     });
-    strict_1.default.ok(url?.includes("aaacooper.com"));
+    strict_1.default.equal(url, "https://www.aaacooper.com/pwb/Transit/ProTrackResults.aspx?ProNum=12345&AllAccounts=true");
 });
 // A. Duie Pyle
 (0, node_test_1.test)("matches a. duie pyle", () => {
@@ -56,7 +56,7 @@ const index_1 = require("./index");
         tracking_number: "12345",
         carrier_name: "A. Duie Pyle",
     });
-    strict_1.default.ok(url?.includes("aduiepyle.com"));
+    strict_1.default.equal(url, "https://aduiepyle.com/resources/shipment-status/?tracking=12345");
 });
 // Ceva
 (0, node_test_1.test)("matches ceva", () => {
@@ -64,7 +64,7 @@ const index_1 = require("./index");
         tracking_number: "12345",
         carrier_name: "Ceva",
     });
-    strict_1.default.ok(url?.includes("cevalogistics.com"));
+    strict_1.default.equal(url, "https://www.cevalogistics.com/en/ceva-trak?reference_query=12345&search_type=oneview");
 });
 // Speedee
 (0, node_test_1.test)("matches speedee", () => {
@@ -72,7 +72,7 @@ const index_1 = require("./index");
         tracking_number: "12345",
         carrier_name: "Speedee",
     });
-    strict_1.default.ok(url?.includes("speedeedelivery.com"));
+    strict_1.default.equal(url, "https://speedeedelivery.com/track-a-shipment/?v=detail&barcode=12345");
 });
 // Meyer
 (0, node_test_1.test)("matches meyer", () => {
@@ -80,7 +80,15 @@ const index_1 = require("./index");
         tracking_number: "12345",
         carrier_name: "Meyer Logistics",
     });
-    strict_1.default.ok(url?.includes("meyerlogistics.com"));
+    strict_1.default.equal(url, "https://meyerlogistics.com/shipment-tracker?trackingNumber=RVR12345");
+});
+// SAIA
+(0, node_test_1.test)("matches saia", () => {
+    const url = (0, index_1.getLTLTrackingLink)({
+        tracking_number: "12345",
+        carrier_name: "SAIA",
+    });
+    strict_1.default.equal(url, "https://www.saia.com/track/details;pro=12345");
 });
 // carrier_method fallback
 (0, node_test_1.test)("matches via carrier_method when carrier_name absent", () => {

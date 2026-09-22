@@ -14,9 +14,11 @@ const carrierUrls: Record<string, string> = {
   aaacooper:
     "https://www.aaacooper.com/pwb/Transit/ProTrackResults.aspx?ProNum=$$$&AllAccounts=true",
   aduiepyle: "https://aduiepyle.com/resources/shipment-status/?tracking=$$$",
-  ceva: "https://www.cevalogistics.com/en/ceva-trak?reference_query=$$$&search_type=oneview",
+  ceva:
+    "https://www.cevalogistics.com/en/ceva-trak?reference_query=$$$&search_type=oneview",
   speedee: "https://speedeedelivery.com/track-a-shipment/?v=detail&barcode=$$$",
   meyer: "https://meyerlogistics.com/shipment-tracker?trackingNumber=RVR$$$",
+  saia: "https://www.saia.com/track/details;pro=$$$",
 };
 
 export function getLTLTrackingLink(trackingInfo: TrackingInfo): string | null {
