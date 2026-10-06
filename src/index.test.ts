@@ -1,5 +1,5 @@
-import { test } from "node:test";
 import assert from "node:assert/strict";
+import { test } from "node:test";
 import { getLTLTrackingLink } from "./index";
 
 test("returns null when no carrier info provided", () => {
@@ -123,6 +123,18 @@ test("matches saia", () => {
     carrier_name: "SAIA",
   });
   assert.equal(url, "https://www.saia.com/track/details;pro=12345");
+});
+
+// XPO
+test("matches xpo", () => {
+  const url = getLTLTrackingLink({
+    tracking_number: "12345",
+    carrier_name: "XPO",
+  });
+  assert.equal(
+    url,
+    "https://ext-web.ltl-xpo.com/public-app/shipments?referenceNumber=12345",
+  );
 });
 
 // carrier_method fallback

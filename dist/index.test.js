@@ -3,8 +3,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const node_test_1 = require("node:test");
 const strict_1 = __importDefault(require("node:assert/strict"));
+const node_test_1 = require("node:test");
 const index_1 = require("./index");
 (0, node_test_1.test)("returns null when no carrier info provided", () => {
     strict_1.default.equal((0, index_1.getLTLTrackingLink)({ tracking_number: "12345" }), null);
@@ -89,6 +89,14 @@ const index_1 = require("./index");
         carrier_name: "SAIA",
     });
     strict_1.default.equal(url, "https://www.saia.com/track/details;pro=12345");
+});
+// XPO
+(0, node_test_1.test)("matches xpo", () => {
+    const url = (0, index_1.getLTLTrackingLink)({
+        tracking_number: "12345",
+        carrier_name: "XPO",
+    });
+    strict_1.default.equal(url, "https://ext-web.ltl-xpo.com/public-app/shipments?referenceNumber=12345");
 });
 // carrier_method fallback
 (0, node_test_1.test)("matches via carrier_method when carrier_name absent", () => {

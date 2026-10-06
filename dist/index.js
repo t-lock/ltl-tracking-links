@@ -11,6 +11,7 @@ const carrierUrls = {
     speedee: "https://speedeedelivery.com/track-a-shipment/?v=detail&barcode=$$$",
     meyer: "https://meyerlogistics.com/shipment-tracker?trackingNumber=RVR$$$",
     saia: "https://www.saia.com/track/details;pro=$$$",
+    xpo: "https://ext-web.ltl-xpo.com/public-app/shipments?referenceNumber=$$$",
 };
 function getLTLTrackingLink(trackingInfo) {
     if (!trackingInfo.carrier_name && !trackingInfo.carrier_method)
